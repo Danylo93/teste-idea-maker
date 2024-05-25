@@ -1,0 +1,5 @@
+terraform.tfstate
+teste-devops.pem
+terraform.tfstate.backup
+.terraform/
+.terraform/*
