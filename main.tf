@@ -63,3 +63,13 @@ resource "aws_instance" "web" {
               echo "<html><body><h1>Olá, Mundo!</h1></body></html>" > /var/www/html/index.html
               EOF
 }
+
+
+# Chamada para o script de implantação usando local-exec
+resource "null_resource" "deploy" {
+  provisioner "local-exec" {
+    command = "./deploy.sh"
+  }
+
+  depends_on = [aws_instance.web]
+}
